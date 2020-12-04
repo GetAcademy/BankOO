@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BankOO
 {
     public class Statement
     {
-        public IEnumerable<Transaction> Transactions { get; }
+        private YearAndMonth _yearAndMonth;
+        public Transaction[] Transactions { get; }
 
-        public Statement(IEnumerable<Transaction> transactions)
+        public Statement(YearAndMonth yearAndMonth, IEnumerable<Transaction> transactions)
         {
-            Transactions = transactions;
+            _yearAndMonth = yearAndMonth;
+            Transactions = transactions.ToArray();
         }
     }
 }

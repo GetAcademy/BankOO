@@ -24,5 +24,10 @@ namespace BankOO
                 ? new YearAndMonth(year - 1, 12)
                 : new YearAndMonth(year, month - 1);
         }
+
+        public bool Matches(DateTime date)
+        {
+            return date.Year == Year && date.Month == Month;
+        }
     }
 }
